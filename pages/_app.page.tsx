@@ -1,20 +1,11 @@
 import React, { Fragment } from 'react';
 import App from 'next/app';
-import { ThemeProvider } from '@material-ui/core';
-import notistack from "notistack";
-import { CssBaseline, NoSsr } from '@material-ui/core';
-import { theme } from './theme';
+import { CssBaseline, NoSsr, LinearProgress } from '@material-ui/core';
+import dynamic from "next/dynamic";
 
-export const Provider: React.StatelessComponent = (props) => {
-  const { SnackbarProvider } = require('notistack') as typeof notistack
-  return (
-    <ThemeProvider theme={theme}>
-      <SnackbarProvider>
-        {props.children}
-      </SnackbarProvider>
-    </ThemeProvider>
-  )
-}
+export const Provider = dynamic(() => import('./provider'), {
+  loading: () => <LinearProgress />
+})
 
 class MyApp extends App {
   render() {
