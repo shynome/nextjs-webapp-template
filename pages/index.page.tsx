@@ -1,5 +1,6 @@
-import React from "react";
-import notistack from "notistack";
+import React from 'react'
+import notistack from 'notistack'
+import { Button } from '@material-ui/core'
 
 export default () => {
   const { useSnackbar } = require('notistack') as typeof notistack
@@ -7,9 +8,5 @@ export default () => {
   const alert = () => {
     enqueueSnackbar('fffffffff')
   }
-  return (
-    <div onClick={alert}>
-      hello world
-    </div>
-  )
+  return <Button onClick={alert}>hello world</Button>
 }

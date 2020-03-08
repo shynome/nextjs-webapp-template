@@ -1,6 +1,7 @@
-import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { theme } from './theme';
+import React from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
+import { theme } from './_theme'
+import { SimplePaletteColorOptions } from '@material-ui/core'
 
 class MyDocument extends Document {
   render() {
@@ -14,15 +15,18 @@ class MyDocument extends Document {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta
+            name="theme-color"
+            content={(theme.palette.primary as SimplePaletteColorOptions).main}
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument
